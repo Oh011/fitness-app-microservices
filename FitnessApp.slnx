@@ -1,0 +1,30 @@
+<Solution>
+  <Folder Name="/AuthenticationService/">
+    <Project Path="AuthenticationService/AuthenticationService.csproj" />
+  </Folder>
+  <Folder Name="/FCEService/">
+    <Project Path="FCEService/FCEService.csproj" />
+  </Folder>
+  <Folder Name="/NotificationService/">
+    <Project Path="NotificationService/NotificationService.csproj" />
+  </Folder>
+  <Folder Name="/NutritionService/">
+    <Project Path="NutritionService/NutritionService.csproj" />
+  </Folder>
+  <Folder Name="/ProgressTrackingService/">
+    <Project Path="ProgressTrackingService/ProgressTrackingService.csproj" />
+  </Folder>
+  <Folder Name="/SmartCoachService/">
+    <Project Path="SmartCoachService/SmartCoachService.csproj" />
+  </Folder>
+  <Folder Name="/Subscription&amp;Billing Service/">
+    <Project Path="Subscription&amp;Billing Service/Subscription&amp;Billing Service.csproj" />
+  </Folder>
+  <Folder Name="/UserProfileService/">
+    <Project Path="UserProfileService/UserProfileService.csproj" />
+  </Folder>
+  <Folder Name="/WorkoutService/">
+    <Project Path="WorkoutService/WorkoutService.csproj" />
+  </Folder>
+  <Project Path="FitnessApp/FitnessApp.csproj" />
+</Solution>
