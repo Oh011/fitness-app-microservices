@@ -1,0 +1,6 @@
+@UserProfileService.APi_HostAddress = http://localhost:5064
+
+GET {{UserProfileService.APi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

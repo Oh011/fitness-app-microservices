@@ -1,0 +1,202 @@
+version: "3.9"
+
+services:
+
+  api-gateway:
+    build:
+      context: .
+      dockerfile: src/ApiGateway/ApiGateway/Dockerfile
+    container_name: api-gateway
+    ports:
+      - "5000:8080"
+
+  authentication-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: authentication-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password123!"
+    volumes:
+      - authentication_db_data:/var/opt/mssql
+
+  authentication-service:
+    build:
+      context: .
+      dockerfile: src/AuthenticationService/AuthenticationService.Api/Dockerfile
+    container_name: authentication-service
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Server=authentication-db,1433;Database=AuthenticationDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;"
+    depends_on:
+      - authentication-db
+
+  workout-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: workout-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password123!"
+    volumes:
+      - workout_db_data:/var/opt/mssql
+
+  workout-service:
+    build:
+      context: .
+      dockerfile: src/WorkoutService/WorkoutService.Api/Dockerfile
+    container_name: workout-service
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Server=workout-db,1433;Database=WorkoutDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;"
+    depends_on:
+      - workout-db
+
+  nutrition-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: nutrition-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password123!"
+    volumes:
+      - nutrition_db_data:/var/opt/mssql
+
+  nutrition-service:
+    build:
+      context: .
+      dockerfile: src/NutritionService/NutritionService.Api/Dockerfile
+    container_name: nutrition-service
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Server=nutrition-db,1433;Database=NutritionDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;"
+    depends_on:
+      - nutrition-db
+
+  userprofile-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: userprofile-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password123!"
+    volumes:
+      - userprofile_db_data:/var/opt/mssql
+
+  userprofile-service:
+    build:
+      context: .
+      dockerfile: src/UserProfileService/UserProfileService.Api/Dockerfile
+    container_name: userprofile-service
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Server=userprofile-db,1433;Database=UserProfileDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;"
+    depends_on:
+      - userprofile-db
+
+  progresstracking-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: progresstracking-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password123!"
+    volumes:
+      - progresstracking_db_data:/var/opt/mssql
+
+  progresstracking-service:
+    build:
+      context: .
+      dockerfile: src/ProgressTrackingService/ProgressTrackingService.Api/Dockerfile
+    container_name: progresstracking-service
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Server=progresstracking-db,1433;Database=ProgressTrackingDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;"
+    depends_on:
+      - progresstracking-db
+
+  smartcoach-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: smartcoach-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password123!"
+    volumes:
+      - smartcoach_db_data:/var/opt/mssql
+
+  smartcoach-service:
+    build:
+      context: .
+      dockerfile: src/SmartCoachService/SmartCoachService.Api/Dockerfile
+    container_name: smartcoach-service
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Server=smartcoach-db,1433;Database=SmartCoachDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;"
+    depends_on:
+      - smartcoach-db
+
+  notification-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: notification-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password123!"
+    volumes:
+      - notification_db_data:/var/opt/mssql
+
+  notification-service:
+    build:
+      context: .
+      dockerfile: src/NotificationService/NotificationService.Api/Dockerfile
+    container_name: notification-service
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Server=notification-db,1433;Database=NotificationDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;"
+    depends_on:
+      - notification-db
+
+  subscription-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: subscription-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password123!"
+    volumes:
+      - subscription_db_data:/var/opt/mssql
+
+  subscription-service:
+    build:
+      context: .
+      dockerfile: src/SubscriptionService/SubscriptionService.Api/Dockerfile
+    container_name: subscription-service
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Server=subscription-db,1433;Database=SubscriptionDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;"
+    depends_on:
+      - subscription-db
+
+  fce-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: fce-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password123!"
+    volumes:
+      - fce_db_data:/var/opt/mssql
+
+  fce-service:
+    build:
+      context: .
+      dockerfile: src/FCEService/FCEService.Api/Dockerfile
+    container_name: fce-service
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Server=fce-db,1433;Database=FCEDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;"
+    depends_on:
+      - fce-db
+
+volumes:
+  authentication_db_data:
+  workout_db_data:
+  nutrition_db_data:
+  userprofile_db_data:
+  progresstracking_db_data:
+  smartcoach_db_data:
+  notification_db_data:
+  subscription_db_data:
+  fce_db_data:

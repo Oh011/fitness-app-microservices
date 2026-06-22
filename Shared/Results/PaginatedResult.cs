@@ -1,4 +1,4 @@
-﻿namespace Authenticore.Shared.Results
+﻿namespace Shared.Results
 {
     public class PaginatedResult<T>
     {

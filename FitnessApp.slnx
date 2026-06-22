@@ -1,30 +1,36 @@
 <Solution>
+  <Folder Name="/ApiGateway/">
+    <Project Path="src/ApiGateway/ApiGateway/ApiGateway.csproj" />
+  </Folder>
   <Folder Name="/AuthenticationService/">
-    <Project Path="AuthenticationService/AuthenticationService.csproj" />
+    <Project Path="src/AuthenticationService/AuthenticationService.Api/AuthenticationService.Api.csproj" Id="f52706bb-8551-49bd-bb52-9ac5f01c29a7" />
   </Folder>
   <Folder Name="/FCEService/">
-    <Project Path="FCEService/FCEService.csproj" />
+    <Project Path="src/FCEService/FCEService.Api/FCEService.Api.csproj" Id="f3933559-e751-4bc9-8358-8759c6676d83" />
   </Folder>
   <Folder Name="/NotificationService/">
-    <Project Path="NotificationService/NotificationService.csproj" />
+    <Project Path="src/NotificationService/NotificationService.APi/NotificationService.APi.csproj" Id="ff9b4e6b-ff47-41cc-964f-8a9d016389f5" />
   </Folder>
   <Folder Name="/NutritionService/">
-    <Project Path="NutritionService/NutritionService.csproj" />
+    <Project Path="src/NutritionService/NutritionService.Api/NutritionService.Api.csproj" Id="73ce81f2-ae63-4b03-bc99-fd2e9a36af1f" />
   </Folder>
   <Folder Name="/ProgressTrackingService/">
-    <Project Path="ProgressTrackingService/ProgressTrackingService.csproj" />
+    <Project Path="src/ProgressTrackingService/ProgressTrackingService.Api/ProgressTrackingService.Api.csproj" Id="f018aa4e-a2ac-4ee5-b99f-7d90deb7bf13" />
   </Folder>
   <Folder Name="/SmartCoachService/">
-    <Project Path="SmartCoachService/SmartCoachService.csproj" />
+    <Project Path="src/SmartCoachService/SmartCoachService.APi/SmartCoachService.APi.csproj" Id="4263fff5-a3a4-422a-99af-d89261d57d3b" />
   </Folder>
-  <Folder Name="/Subscription&amp;Billing Service/">
-    <Project Path="Subscription&amp;Billing Service/Subscription&amp;Billing Service.csproj" />
+  <Folder Name="/SubscriptionService/">
+    <Project Path="src/SubscriptionService/SubscriptionService.APi/SubscriptionService.APi.csproj" Id="c2b19ba1-797f-43bf-8dfb-aa17716f8eae" />
   </Folder>
   <Folder Name="/UserProfileService/">
-    <Project Path="UserProfileService/UserProfileService.csproj" />
+    <Project Path="src/UserProfileService/UserProfileService.APi/UserProfileService.APi.csproj" Id="549297be-0270-449a-b38b-b46b4aa2d3c4" />
   </Folder>
   <Folder Name="/WorkoutService/">
-    <Project Path="WorkoutService/WorkoutService.csproj" />
+    <Project Path="src/WorkoutService/WorkoutService.Api/WorkoutService.Api.csproj" Id="f2b09029-8809-44c9-908e-a6c430cf32fc" />
   </Folder>
-  <Project Path="FitnessApp/FitnessApp.csproj" />
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+  <Project Path="Shared/Shared.csproj" />
 </Solution>

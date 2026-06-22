@@ -1,6 +1,0 @@
-@NutritionService_HostAddress = http://localhost:5049
-
-GET {{NutritionService_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

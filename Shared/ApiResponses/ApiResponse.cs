@@ -1,6 +1,8 @@
-﻿using DigitalWalletSystem.Shared.Errors;
+﻿
 
-namespace BankingApiTest.Responses
+using Shared.Errors;
+
+namespace Shared.Responses
 {
     public class ApiResponse
     {

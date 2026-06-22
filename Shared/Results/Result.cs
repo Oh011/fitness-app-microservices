@@ -1,8 +1,8 @@
 ﻿
-using Authenticore.Shared.Errors;
+using Shared.Errors;
 
 
-namespace Authenticore.Shared.Results
+namespace Shared.Results
 {
 
     public class Result
