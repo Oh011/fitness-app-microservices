@@ -3,7 +3,12 @@
     <Project Path="src/ApiGateway/ApiGateway/ApiGateway.csproj" />
   </Folder>
   <Folder Name="/AuthenticationService/">
+    <Project Path="../AuthenticationService.Infrastructure/AuthenticationService.Infrastructure.csproj" Id="f3eaeda3-6f5b-4140-ba47-3fd145a7a60c" />
     <Project Path="src/AuthenticationService/AuthenticationService.Api/AuthenticationService.Api.csproj" Id="f52706bb-8551-49bd-bb52-9ac5f01c29a7" />
+  </Folder>
+  <Folder Name="/AuthenticationService/Core/">
+    <Project Path="../AuthenticationService.Application/AuthenticationService.Application.csproj" Id="17fb7ea4-4514-4139-a44d-9d8d7bf78cac" />
+    <Project Path="../AuthenticationService.Domain/AuthenticationService.Domain.csproj" Id="f9ff878c-028b-4ed3-bdc5-c258f9be648b" />
   </Folder>
   <Folder Name="/FCEService/">
     <Project Path="src/FCEService/FCEService.Api/FCEService.Api.csproj" Id="f3933559-e751-4bc9-8358-8759c6676d83" />
@@ -32,5 +37,5 @@
   <Project Path="docker-compose.dcproj">
     <Build />
   </Project>
-  <Project Path="Shared/Shared.csproj" />
+  <Project Path="src/Shared/Shared.csproj" />
 </Solution>
