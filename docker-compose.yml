@@ -46,7 +46,7 @@ services:
     container_name: workout-service
     environment:
       ASPNETCORE_URLS: "http://+:8080"
-      ConnectionStrings__DefaultConnection: "Server=workout-db,1433;Database=WorkoutDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;"
+      ConnectionStrings__WorkoutDbConnection: "Server=workout-db,1433;Database=WorkoutDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;"
     depends_on:
       - workout-db
 
