@@ -7,11 +7,25 @@
     <UserSecretsId>a21a8f43-e638-49db-89ea-44c5dae0e9fc</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..\..</DockerfileContext>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.9" />
+    <!-- Microsoft.AspNetCore.OpenApi removed; Swashbuckle handles OpenAPI -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.9">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WorkoutService.Application\WorkoutService.Application.csproj" />
+    <ProjectReference Include="..\WorkoutService.Domain\WorkoutService.Domain.csproj" />
+    <ProjectReference Include="..\WorkoutService.Infrastructure\WorkoutService.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
