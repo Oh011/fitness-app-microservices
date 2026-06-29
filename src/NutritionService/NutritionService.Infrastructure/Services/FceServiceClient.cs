@@ -36,9 +36,7 @@ internal class FceServiceClient : IFceServiceClient
 
             return Result<CalorieTargetDto>.Success(new CalorieTargetDto
             {
-                TargetCalories = fceResponse.Data.CalorieTarget,
-                Goal = fceResponse.Data.Goal ?? string.Empty,
-                ActivityLevel = fceResponse.Data.ActivityLevel ?? string.Empty
+                TargetCalories = fceResponse.Data.CalorieTarget
             });
         }
         catch (HttpRequestException ex)
@@ -63,11 +61,5 @@ internal class FceServiceClient : IFceServiceClient
     {
         [JsonPropertyName("calorieTarget")]
         public int CalorieTarget { get; set; }
-
-        [JsonPropertyName("goal")]
-        public string? Goal { get; set; }
-
-        [JsonPropertyName("activityLevel")]
-        public string? ActivityLevel { get; set; }
     }
 }
